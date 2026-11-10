@@ -26,12 +26,12 @@ The working group plans to develop:
 - AAuth Rich Resource Requests (R3) 1.0
 - AAuth Budgets 1.0
 
-The contributed drafts are currently individual Internet-Drafts maintained
-at [dickhardt/AAuth](https://github.com/dickhardt/AAuth). When the working
+The contributed drafts are currently maintained at
+[dickhardt/AAuth](https://github.com/dickhardt/AAuth). When the working
 group adopts a draft, it moves to its own repository under the
 [openid](https://github.com/openid) organization, with its own issue tracker
-and Editor's Copy. This repository holds the charter, minutes, and working
-group process. See [resources.md](resources.md) for links to the drafts,
+and Editor's Copy. This repository holds the charter and information about
+the working group. See [resources.md](resources.md) for links to the drafts,
 implementations, and related work.
 
 ## Contributing
@@ -57,9 +57,10 @@ calendar is generated from the
 [OpenID Foundation calendar](https://openid.net/calendar/), which is the
 source of record.
 
-Minutes are kept in [minutes/](minutes/). See
-[Meetings and minutes](CONTRIBUTING.md#meetings-and-minutes) for how they are
-prepared.
+Agents take the working group's meeting notes. Minutes are published in
+[minutes/](minutes/) and on the
+[mailing list](https://lists.openid.net/pipermail/openid-specs-aauth/). See
+[Meeting notes](CONTRIBUTING.md#meeting-notes).
 
 ## Who do I talk to?
 
@@ -71,5 +72,5 @@ prepared.
   to follow the working group's announcements and discussions
   (note that only people with an active IPR Contribution Agreement can post
   to the list).
-- The chairs can be contacted directly at
+- The chairs can be contacted at
   [openid-specs-aauth-owner@lists.openid.net](mailto:openid-specs-aauth-owner@lists.openid.net).

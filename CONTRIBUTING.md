@@ -1,8 +1,7 @@
 # How to contribute
 
 Thank you for your interest in the work of the Agent Auth (AAuth) Working
-Group. Contributions from implementers and other interested parties are what
-make the specifications better.
+Group.
 
 Here are some important resources:
 
@@ -32,73 +31,43 @@ group.
 
 [More info on IPR and the contribution agreement](https://openid.net/intellectual-property/)
 
-The drafts at [dickhardt/AAuth](https://github.com/dickhardt/AAuth) are IETF
-individual submissions and are governed by IETF IPR rules (BCP 78 and BCP 79).
-Contributions to this repository are governed by the
-[OpenID Foundation IPR Policy](https://openid.net/wp-content/uploads/2024/10/OIDF-Policy_IPR-Policy_Final_2024-10-19.pdf).
-
 ## Code of Conduct
 
 All participants in the working group's activities, including meetings, the
 mailing list, and this repository, are expected to follow the OpenID
 Foundation's [Code of Conduct](CODE_OF_CONDUCT.md).
 
-## How the group works
+## Repositories
 
-GitHub is the working group's primary tool for developing the technical
-specifications, and its repositories are public. Each adopted specification
-has its own repository under the [openid](https://github.com/openid)
-organization. This repository holds the charter, minutes, and working group
-process. Decisions are made by group
-consensus, normally in working group meetings, and important decisions
-(including the decision to publish) are tracked in GitHub issues.
+Each adopted specification has its own repository under the
+[openid](https://github.com/openid) organization. This repository holds the
+charter and information about the working group.
 
-## Meetings and minutes
+## Meeting notes
 
-Meetings are announced on the mailing list with the agenda in advance. Each
-meeting opens with the
-[Antitrust Policy](https://openid.net/wp-content/uploads/2024/09/OIDF-Antitrust-Policy_Final_2024-09-12.pdf)
-notice and a notice that the meeting is being transcribed.
+The AAuth Working Group is agent native, and agents take its meeting notes.
+An AI note-taking service creates the notes for each meeting. The working
+group will start with Granola, and may later use a similar service. The
+chairs review the notes before they are published in [minutes/](minutes/)
+and on the
+[mailing list](https://lists.openid.net/pipermail/openid-specs-aauth/). Each
+set of minutes states which service created it. Transcripts are not
+published. Corrections can be sent to the mailing list.
 
-Minutes are prepared by an agent from the meeting transcript:
+This is proposed for decision at the working group's first meeting on
+November 30, 2026, and is subject to approval by the OpenID Foundation under
+its
+[Notes & Recordings Policy](https://openid.net/wp-content/uploads/2026/06/OIDF_Notes-Recordings-Policy_Final_2026-06-04.pdf).
 
-1. The agent drafts the minutes and opens a pull request adding
-   `minutes/YYYY-MM-DD.md`. The minutes record attendees, the agenda, a
-   summary of the discussion, decisions, and action items, with links to
-   the issues and pull requests discussed.
-2. Attendees review the pull request and comment with corrections.
-3. A chair reviews the minutes, makes sure corrections are addressed, and
-   merges the pull request. The chair is responsible for the minutes.
-4. The chair posts the minutes to the
-   [mailing list](https://lists.openid.net/mailman/listinfo/openid-specs-aauth),
-   as required by §4.8 of the
-   [Process Document](https://openid.net/wp-content/uploads/2024/10/OIDF_Process-Document_Final_2024-10-19.pdf).
+## Issues and pull requests
 
-The transcript is used only to prepare the minutes and is not published.
-Corrections after merge are made by pull request.
-
-## Filing issues
-
-- Open an issue to raise a topic for discussion by the group, and comment on
-  existing issues to facilitate the discussion
-- Search the existing issues first to avoid duplicates
-- Keep each issue focused on a single topic; file separate issues for
-  separate concerns
-- Where possible, propose concrete text. Concrete proposals are easier to
-  discuss and adopt than open-ended concerns
-
-## Pull requests
-
-- Open pull requests for substantive changes once the corresponding issue has
-  reached consensus on the normative change. If significant discussion
-  happens on a pull request, it may be closed and split into issues
-- Editorial fixes (typos, broken links, formatting) can be submitted
-  directly. The GitHub interface supports creating pull requests using the
-  Edit (✏) button
-- Reference the issue(s) a pull request resolves in its description
-- Substantive pull requests are discussed in at least one working group
-  meeting before they are merged
+- Search the existing issues before opening a new one, and keep each issue
+  to a single topic
+- Where possible, propose concrete text
+- Editorial fixes (typos, broken links, formatting) can be submitted directly
+  as pull requests
+- Reference the issue a pull request resolves in its description
 
 Thanks,
 
-AAuth Working Group Chairs
+AAuth Working Group

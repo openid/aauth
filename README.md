@@ -58,8 +58,14 @@ calendar, so cancellations and changes reach your calendar:
 - [Google Calendar](https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fopenid.github.io%2Faauth%2Faauth-wg.ics)
 - [Outlook.com](https://outlook.live.com/calendar/0/addfromweb?url=https%3A%2F%2Fopenid.github.io%2Faauth%2Faauth-wg.ics&name=OpenID+Foundation+AAuth+WG)
 - [Microsoft 365](https://outlook.office.com/calendar/0/addfromweb?url=https%3A%2F%2Fopenid.github.io%2Faauth%2Faauth-wg.ics&name=OpenID+Foundation+AAuth+WG)
-- Apple Calendar and others: [openid.github.io/aauth](https://openid.github.io/aauth/),
-  or subscribe to `https://openid.github.io/aauth/aauth-wg.ics`
+- Apple Calendar: [openid.github.io/aauth](https://openid.github.io/aauth/)
+- Other calendar apps: copy this address into the app's option to subscribe
+  to a calendar by URL. Downloading the file instead imports a copy that
+  won't get cancellations or changes.
+
+  ```
+  https://openid.github.io/aauth/aauth-wg.ics
+  ```
 
 The AAuth WG calendar is generated hourly from the
 [OpenID Foundation calendar](https://openid.net/calendar/), which is the

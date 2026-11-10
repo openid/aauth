@@ -222,7 +222,9 @@ def page(when, skips):
     .next {{ font-size: 1.1rem; }}
     .buttons {{ display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }}
     .button {{ border: 1px solid var(--line); border-radius: 6px; padding: 0.45rem 0.9rem;
-              text-decoration: none; font-weight: 600; }}
+              text-decoration: none; background: none; color: var(--accent);
+              font: inherit; font-weight: 600; cursor: pointer; }}
+    .feed {{ display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }}
     code {{ word-break: break-all; }}
   </style>
 </head>
@@ -237,13 +239,30 @@ def page(when, skips):
     <div class="buttons">
 {buttons}
     </div>
-    <p>Other calendar apps: subscribe to <code>{e(FEED_URL)}</code></p>
+    <p>Other calendar apps: copy this address into the app's option to subscribe to a calendar by URL.
+      Downloading the file instead imports a copy that won't get cancellations or changes.</p>
+    <p class="feed"><code>{e(FEED_URL)}</code>
+      <button type="button" class="button" id="copy">Copy</button></p>
     <p class="muted">Calendar apps refresh subscriptions on their own schedule. Google can take up to a day,
       so short-notice cancellations are also announced on the <a href="{MAILING_LIST}">mailing list</a>.
       The feed is generated hourly from the <a href="{OIDF_CALENDAR_PAGE}">OpenID Foundation calendar</a>,
       which is the source of record.</p>
     <p><a href="{REPO_URL}">Working group repository</a></p>
   </main>
+  <script>
+    document.getElementById("copy").addEventListener("click", async (event) => {{
+      const button = event.currentTarget;
+      try {{
+        await navigator.clipboard.writeText({FEED_URL!r});
+        button.textContent = "Copied";
+      }} catch {{
+        // Clipboard unavailable: select the address so it can be copied by hand.
+        getSelection().selectAllChildren(button.previousElementSibling);
+        button.textContent = "Press Ctrl+C / ⌘C";
+      }}
+      setTimeout(() => {{ button.textContent = "Copy"; }}, 2000);
+    }});
+  </script>
 </body>
 </html>
 """

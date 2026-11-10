@@ -52,27 +52,10 @@ details are in the calendar event.
 No meeting on Monday, December 28, 2026 or Monday, January 4, 2027.
 <!-- next-meeting:end -->
 
-Add the meetings to your calendar. These links subscribe you to the AAuth WG
-calendar, so cancellations and changes reach your calendar:
-
-- [Google Calendar](https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fopenid.github.io%2Faauth%2Faauth-wg.ics)
-- [Outlook.com](https://outlook.live.com/calendar/0/addfromweb?url=https%3A%2F%2Fopenid.github.io%2Faauth%2Faauth-wg.ics&name=OpenID+Foundation+AAuth+WG)
-- [Microsoft 365](https://outlook.office.com/calendar/0/addfromweb?url=https%3A%2F%2Fopenid.github.io%2Faauth%2Faauth-wg.ics&name=OpenID+Foundation+AAuth+WG)
-- Apple Calendar: [openid.github.io/aauth](https://openid.github.io/aauth/)
-- Other calendar apps: copy this address into the app's option to subscribe
-  to a calendar by URL. Downloading the file instead imports a copy that
-  won't get cancellations or changes.
-
-  ```
-  https://openid.github.io/aauth/aauth-wg.ics
-  ```
-
-The AAuth WG calendar is generated hourly from the
+[Add the meetings to your calendar](https://openid.github.io/aauth/). The
+calendar is generated from the
 [OpenID Foundation calendar](https://openid.net/calendar/), which is the
-source of record. Calendar apps refresh subscriptions on their own schedule
-(Google can take up to a day), so short-notice cancellations are also
-announced on the
-[mailing list](https://lists.openid.net/mailman/listinfo/openid-specs-aauth).
+source of record.
 
 Minutes are kept in [minutes/](minutes/). See
 [Meetings and minutes](CONTRIBUTING.md#meetings-and-minutes) for how they are

@@ -1,0 +1,14 @@
+# Generated calendar site (tools/build-calendar.py)
+/_site/
+
+# Python
+__pycache__/
+*.py[cod]
+/.venv/
+
+# Editor / OS files
+*~
+*.swp
+/.vscode/
+/.idea/
+.DS_Store

@@ -55,9 +55,7 @@ set of minutes states which service created it. Transcripts are not
 published. Corrections can be sent to the mailing list.
 
 This is proposed for decision at the working group's first meeting on
-November 30, 2026, and is subject to approval by the OpenID Foundation under
-its
-[Notes & Recordings Policy](https://openid.net/wp-content/uploads/2026/06/OIDF_Notes-Recordings-Policy_Final_2026-06-04.pdf).
+November 30, 2026.
 
 ## Issues and pull requests
 

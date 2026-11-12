@@ -21,10 +21,10 @@ The working group plans to develop:
 
 - AAuth Protocol 1.0
 - AAuth Supervision 1.0
-- HTTP Signature Keys 1.0
 - AAuth Events 1.0
 - AAuth Rich Resource Requests (R3) 1.0
 - AAuth Budgets 1.0
+- OpenID Signature Key 1.0 (subject to feedback from IETF httpbis)
 
 The contributed drafts are currently maintained at
 [dickhardt/AAuth](https://github.com/dickhardt/AAuth). When the working

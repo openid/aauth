@@ -60,7 +60,7 @@ README_START = "<!-- next-meeting:start -->"
 README_END = "<!-- next-meeting:end -->"
 
 SUBSCRIBE = {
-    "Google Calendar": "https://calendar.google.com/calendar/r?cid="
+    "Subscribe in Google Calendar (desktop)": "https://calendar.google.com/calendar/r?cid="
     + urllib.parse.quote(WEBCAL_URL, safe=""),
     "Outlook.com": "https://outlook.live.com/calendar/0/addfromweb?"
     + urllib.parse.urlencode({"url": FEED_URL, "name": CALENDAR_NAME}),
@@ -157,9 +157,8 @@ def join_or(items):
     return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " or " + items[-1]
 
 
-def summary(cal, now):
+def summary(cal, now, meeting):
     """(next meeting line, skipped meetings line) as plain text."""
-    meeting = next_meeting(cal, now)
     if meeting:
         start, end = as_utc(meeting["DTSTART"].dt), as_utc(meeting["DTEND"].dt)
         when = f"{day(start)}, {times(start, end)}"
@@ -190,7 +189,24 @@ def updated_readme(path, block):
     return pattern.sub(lambda _: block, text, count=1)
 
 
-def page(when, skips):
+def google_event_url(meeting):
+    """Return a Google Calendar draft for the displayed occurrence."""
+    start, end = meeting["DTSTART"].dt, meeting["DTEND"].dt
+    if isinstance(start, dt.datetime):
+        dates = f"{as_utc(start):%Y%m%dT%H%M%SZ}/{as_utc(end):%Y%m%dT%H%M%SZ}"
+    else:
+        dates = f"{start:%Y%m%d}/{end:%Y%m%d}"
+    params = {
+        "action": "TEMPLATE",
+        "text": str(meeting.get("SUMMARY") or CALENDAR_NAME),
+        "dates": dates,
+        "location": str(meeting.get("LOCATION", "")),
+        "details": str(meeting.get("DESCRIPTION") or SITE_URL),
+    }
+    return "https://calendar.google.com/calendar/r/eventedit?" + urllib.parse.urlencode(params)
+
+
+def page(when, skips, meeting):
     e = html.escape
     buttons = "\n".join(
         f'      <a class="button" href="{e(url)}">{e(label)}</a>' for label, url in SUBSCRIBE.items()
@@ -202,6 +218,14 @@ def page(when, skips):
         f'<a href="{OIDF_CALENDAR_PAGE}">OpenID Foundation calendar</a>.</p>'
     )
     skips_html = f"<p>{e(skips)}</p>" if skips else ""
+    add_meeting = ""
+    if meeting is not None:
+        add_meeting = (
+            f'<p><a class="button" href="{e(google_event_url(meeting))}">'
+            'Add this meeting to Google Calendar</a></p>'
+            '<p class="muted">Select Save in Google Calendar to add this occurrence. '
+            'Subscribe below for schedule changes and cancellations.</p>'
+        )
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -233,13 +257,16 @@ def page(when, skips):
     <h1>AAuth WG Meetings</h1>
     <p class="muted">OpenID Foundation Agent Auth (AAuth) Working Group</p>
     {next_html}
+    {add_meeting}
     {skips_html}
-    <h2>Add the meetings to your calendar</h2>
+    <h2>Subscribe to the meeting series</h2>
     <p>These links subscribe you to the AAuth WG calendar, so cancellations and changes reach your calendar.</p>
     <div class="buttons">
 {buttons}
     </div>
-    <p>Other calendar apps: copy this address into the app's option to subscribe to a calendar by URL.
+    <p>In Google Calendar on a computer, choose <strong>Other calendars (+) → From URL</strong>,
+      paste the address below, and select <strong>Add calendar</strong>.</p>
+    <p>For other calendar apps, copy this address into the app's option to subscribe to a calendar by URL.
       Downloading the file instead imports a copy that won't get cancellations or changes.</p>
     <p class="feed"><code>{e(FEED_URL)}</code>
       <button type="button" class="button" id="copy">Copy</button></p>
@@ -281,12 +308,13 @@ def main():
 
     src = icalendar.Calendar.from_ical(fetch(args.source))
     cal = filter_calendar(src)
-    when, skips = summary(cal, now)
+    meeting = next_meeting(cal, now)
+    when, skips = summary(cal, now, meeting)
     readme = updated_readme(args.readme, readme_block(when, skips)) if args.readme else None
 
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / "aauth-wg.ics").write_bytes(cal.to_ical())
-    (args.out / "index.html").write_text(page(when, skips))
+    (args.out / "index.html").write_text(page(when, skips, meeting))
     if readme is not None:
         args.readme.write_text(readme)
 
